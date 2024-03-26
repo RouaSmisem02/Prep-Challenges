@@ -15,7 +15,7 @@ const findMax = (arr)=>{
     let max;
     // write your code here
     max = [0];
-    {
+    for(let i =0; i < arr.length; i++){
         if(max < arr[i]){
             max = arr[i];
         }
@@ -61,13 +61,15 @@ const sumNums = (arr)=>{
 const reverseArray = (arr)=>{
     // write your code here
     let temp;
-    let size = arr[i],length -1;
-    for(let i = 0; i < (arr.length)/2; i++){
+    temp=0;
+    let size = arr.length-1;
+    for(let i = 0; i < arr.length/2; i++){
         temp = arr[i];
-        arr[i] = arr [size];
-        arr[size] = temp;
-        size--;
+        arr[i] = arr [size-i];
+        arr[size-i] = temp;
+        
     }
+    return arr; 
 }
 // -------------------------------------------------------------------------------------------------------
 
