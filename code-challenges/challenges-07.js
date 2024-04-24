@@ -21,17 +21,6 @@
 //  2- The first letters of the firstName and lastName should be capital letter
 
 const objLat = (obj) => {
-    // write your code here
-    /*const capFirst = (str) => {
-       return str[0].toUpperCase() + str.slice(1).toLowerCase();
-   };
-   const capFirstName = capFirst(obj.firstName);
-   const capLastName = capFirst(obj.lastName);
-
-   const formatText = "my name is " + capFirstName + " " + capLastName + " I am " + obj.age + " YO, and I love " + obj.hobby.toLowerCase() + ".";
-
-   return formatText;*/
-
     const capitalizeFirstLetter = (str) => {
         return str[0].toUpperCase() + str.slice(1);
     };
