@@ -152,10 +152,11 @@ function gradesAvg(arr) {
         });
     }
     return res3;*/
-    return arr.map((student) => {
-        const sum3 = student.gradsList.reduce((total, grade) => total + grade, 0);
-        const avg3 = sum3 / student.gradsList.length;
-        return { ...student, avg3 };
+    return arr.map(student => {
+        const sum = student.gradsList.reduce((total, grade) => total + grade, 0);
+        const avg = sum / student.gradsList.length;
+        student.avg = avg;
+        return student;
     });
 }
 // -------------------------------------------------------------------------------------------------------
