@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Birthday Cake Candles](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'birthdayCakeCandles' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts INTEGER_ARRAY candles as parameter.\n */\n\nfunction birthdayCakeCandles(candles) {\n    // Write your code here\n    const maxHeight = Math.max(...candles);\n    const count = candles.filter(candle => candle === maxHeight).length;\n        return count;\n\n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const candlesCount = parseInt(readLine().trim(), 10);\n\n    const candles = readLine().replace(/\\s+$/g, '').split(' ').map(candlesTemp => parseInt(candlesTemp, 10));\n\n    const result = birthdayCakeCandles(candles);\n\n    ws.write(result + '\\n');\n\n    ws.end();\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Compare The Triplets](https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'compareTriplets' function below.\n *\n * The function is expected to return an INTEGER_ARRAY.\n * The function accepts following parameters:\n *  1. INTEGER_ARRAY a\n *  2. INTEGER_ARRAY b\n */\n\nfunction compareTriplets(a, b) {\nlet aliceScore = 0;\n    let bobScore = 0;\n    \n    for (let i = 0; i < 3; i++) {\n        if (a[i] > b[i]) {\n            aliceScore++;\n        } else if (a[i] < b[i]) {\n            bobScore++;\n        }\n    }\n    \n    return [aliceScore, bobScore];\n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const a = readLine().replace(/\\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));\n\n    const b = readLine().replace(/\\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));\n\n    const result = compareTriplets(a, b);\n\n    ws.write(result.join(' ') + '\\n');\n\n    ws.end();\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Migratory Birds](https://www.hackerrank.com/challenges/migratory-birds/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'migratoryBirds' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts INTEGER_ARRAY arr as parameter.\n */\n\nfunction migratoryBirds(arr) {\n    // Write your code here\n     const birdCount = {}; \n    \n    arr.forEach(birdType => {\n        birdCount[birdType] = (birdCount[birdType] || 0) + 1;\n    });\n    \n    let maxFrequency = 0;\n    let mostFrequentType = null;\n    for (const birdType in birdCount) {\n        if (birdCount[birdType] > maxFrequency || (birdCount[birdType] === maxFrequency && birdType < mostFrequentType)) {\n            maxFrequency = birdCount[birdType];\n            mostFrequentType = birdType;\n        }\n    }\n    \n    return mostFrequentType;\n\n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const arrCount = parseInt(readLine().trim(), 10);\n\n    const arr = readLine().replace(/\\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));\n\n    const result = migratoryBirds(arr);\n\n    ws.write(result + '\\n');\n\n    ws.end();\n}"
+            ],
+            "outputs": []
+        }
+    ]
+}
