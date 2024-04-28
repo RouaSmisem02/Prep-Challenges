@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Equality In An Array](https://www.hackerrank.com/challenges/equality-in-a-array/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'equalizeArray' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts INTEGER_ARRAY arr as parameter.\n */\n\nfunction equalizeArray(arr) {\n    // Write your code here\n     const frequencyMap = {};\n    arr.forEach(element => {\n        frequencyMap[element] = (frequencyMap[element] || 0) + 1;\n    });\n    \n    let maxFrequency = 0;\n    for (const element in frequencyMap) {\n        if (frequencyMap[element] > maxFrequency) {\n            maxFrequency = frequencyMap[element];\n        }\n    }\n    \n    return arr.length - maxFrequency;\n\n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const n = parseInt(readLine().trim(), 10);\n\n    const arr = readLine().replace(/\\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));\n\n    const result = equalizeArray(arr);\n\n    ws.write(result + '\\n');\n\n    ws.end();\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Halloween Sale](https://www.hackerrank.com/challenges/halloween-sale/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "#include <bits/stdc++.h>\n\nusing namespace std;\n\nstring ltrim(const string &);\nstring rtrim(const string &);\nvector<string> split(const string &);\n\n/*\n * Complete the 'howManyGames' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts following parameters:\n *  1. INTEGER p\n *  2. INTEGER d\n *  3. INTEGER m\n *  4. INTEGER s\n */\n\nint howManyGames(int p, int d, int m, int s) {\n    // Return the number of games you can buy\n    int gamesBought = 0;\n    int currentPrice = p;\n    \n    while (s >= currentPrice) {\n        s -= currentPrice;\n        gamesBought++;\n        \n        currentPrice = max(currentPrice - d, m);\n    }\n    \n    return gamesBought;\n\n}\n\nint main()\n{\n    ofstream fout(getenv(\"OUTPUT_PATH\"));\n\n    string first_multiple_input_temp;\n    getline(cin, first_multiple_input_temp);\n\n    vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));\n\n    int p = stoi(first_multiple_input[0]);\n\n    int d = stoi(first_multiple_input[1]);\n\n    int m = stoi(first_multiple_input[2]);\n\n    int s = stoi(first_multiple_input[3]);\n\n    int answer = howManyGames(p, d, m, s);\n\n    fout << answer << \"\\n\";\n\n    fout.close();\n\n    return 0;\n}\n\nstring ltrim(const string &str) {\n    string s(str);\n\n    s.erase(\n        s.begin(),\n        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))\n    );\n\n    return s;\n}\n\nstring rtrim(const string &str) {\n    string s(str);\n\n    s.erase(\n        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),\n        s.end()\n    );\n\n    return s;\n}\n\nvector<string> split(const string &str) {\n    vector<string> tokens;\n\n    string::size_type start = 0;\n    string::size_type end = 0;\n\n    while ((end = str.find(\" \", start)) != string::npos) {\n        tokens.push_back(str.substr(start, end - start));\n\n        start = end + 1;\n    }\n\n    tokens.push_back(str.substr(start));\n\n    return tokens;\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Sherlock And Squares](https://www.hackerrank.com/challenges/sherlock-and-squares/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}
